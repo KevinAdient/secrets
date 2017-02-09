@@ -79,7 +79,7 @@ class AdientBrandedViewController: UIViewController {
     // MARK: - Storyboard Segue
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
-        var nextScene =  segue.destination as! LoginViewController
+        //var nextScene =  segue.destination as! LoginViewController
     
     }
     
