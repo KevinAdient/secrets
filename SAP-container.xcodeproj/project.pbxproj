@@ -10,6 +10,11 @@
 		472E64351E4D093F00641681 /* DigitsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 472E64321E4D093F00641681 /* DigitsKit.framework */; };
 		472E64361E4D093F00641681 /* DigitsKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 472E64331E4D093F00641681 /* DigitsKitResources.bundle */; };
 		472E64371E4D093F00641681 /* TwitterCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 472E64341E4D093F00641681 /* TwitterCore.framework */; };
+		475ED2EF1E52578300D5BE71 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 475ED2EC1E52578300D5BE71 /* NotificationCenter.framework */; };
+		475ED2F01E52578300D5BE71 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 475ED2ED1E52578300D5BE71 /* UserNotifications.framework */; };
+		475ED2F11E52578300D5BE71 /* UserNotificationsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 475ED2EE1E52578300D5BE71 /* UserNotificationsUI.framework */; };
+		475ED2F31E52592D00D5BE71 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475ED2F21E52592D00D5BE71 /* CoreDataManager.swift */; };
+		475ED2F61E525A1800D5BE71 /* AdientSapStore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 475ED2F41E525A1800D5BE71 /* AdientSapStore.xcdatamodeld */; };
 		477D76991E4CF124002B235C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477D76911E4CF124002B235C /* AppDelegate.swift */; };
 		477D769A1E4CF124002B235C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 477D76921E4CF124002B235C /* Assets.xcassets */; };
 		477D769B1E4CF124002B235C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 477D76931E4CF124002B235C /* LaunchScreen.storyboard */; };
@@ -40,6 +45,11 @@
 		472E64321E4D093F00641681 /* DigitsKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DigitsKit.framework; sourceTree = "<group>"; };
 		472E64331E4D093F00641681 /* DigitsKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = DigitsKitResources.bundle; path = DigitsKit.framework/Versions/A/Resources/DigitsKitResources.bundle; sourceTree = "<group>"; };
 		472E64341E4D093F00641681 /* TwitterCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterCore.framework; sourceTree = "<group>"; };
+		475ED2EC1E52578300D5BE71 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		475ED2ED1E52578300D5BE71 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		475ED2EE1E52578300D5BE71 /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
+		475ED2F21E52592D00D5BE71 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataManager.swift; path = "SAP-container/CoreDataManager.swift"; sourceTree = "<group>"; };
+		475ED2F51E525A1800D5BE71 /* AdientSapStore.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AdientSapStore.xcdatamodel; sourceTree = "<group>"; };
 		477D76911E4CF124002B235C /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		477D76921E4CF124002B235C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		477D76941E4CF124002B235C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -64,6 +74,7 @@
 		477D76C21E4CFAFE002B235C /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		477D76C51E4CFF8F002B235C /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		477D76C61E4CFF8F002B235C /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		47B45AAE1E4E45BC0011103C /* SAP-container.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "SAP-container.entitlements"; sourceTree = "<group>"; };
 		514C9FF91D5F90D5005D70E0 /* SAP-container.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SAP-container.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -72,6 +83,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				475ED2EF1E52578300D5BE71 /* NotificationCenter.framework in Frameworks */,
+				475ED2F01E52578300D5BE71 /* UserNotifications.framework in Frameworks */,
+				475ED2F11E52578300D5BE71 /* UserNotificationsUI.framework in Frameworks */,
 				472E64351E4D093F00641681 /* DigitsKit.framework in Frameworks */,
 				472E64371E4D093F00641681 /* TwitterCore.framework in Frameworks */,
 				477D76C81E4CFF8F002B235C /* Crashlytics.framework in Frameworks */,
@@ -82,9 +96,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		475ED2EB1E52578200D5BE71 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				475ED2EC1E52578300D5BE71 /* NotificationCenter.framework */,
+				475ED2ED1E52578300D5BE71 /* UserNotifications.framework */,
+				475ED2EE1E52578300D5BE71 /* UserNotificationsUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		477D76901E4CF124002B235C /* SAP-container */ = {
 			isa = PBXGroup;
 			children = (
+				47B45AAE1E4E45BC0011103C /* SAP-container.entitlements */,
 				477D76911E4CF124002B235C /* AppDelegate.swift */,
 				477D76921E4CF124002B235C /* Assets.xcassets */,
 				477D76931E4CF124002B235C /* LaunchScreen.storyboard */,
@@ -128,6 +153,8 @@
 		514C9FF01D5F90D5005D70E0 = {
 			isa = PBXGroup;
 			children = (
+				475ED2F41E525A1800D5BE71 /* AdientSapStore.xcdatamodeld */,
+				475ED2F21E52592D00D5BE71 /* CoreDataManager.swift */,
 				472E64321E4D093F00641681 /* DigitsKit.framework */,
 				472E64331E4D093F00641681 /* DigitsKitResources.bundle */,
 				472E64341E4D093F00641681 /* TwitterCore.framework */,
@@ -137,6 +164,7 @@
 				477D769F1E4CF1A1002B235C /* Branding */,
 				477D76901E4CF124002B235C /* SAP-container */,
 				514C9FFA1D5F90D5005D70E0 /* Products */,
+				475ED2EB1E52578200D5BE71 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -183,6 +211,20 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 776YQQ7A2B;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.DataProtection = {
+								enabled = 1;
+							};
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.Siri = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -256,7 +298,9 @@
 				477D76A81E4CF1BB002B235C /* AdientSeatBrandedCustomView.swift in Sources */,
 				477D76BD1E4CF1EA002B235C /* QCMethod.swift in Sources */,
 				477D76991E4CF124002B235C /* AppDelegate.swift in Sources */,
+				475ED2F61E525A1800D5BE71 /* AdientSapStore.xcdatamodeld in Sources */,
 				477D76A71E4CF1BB002B235C /* AdientBrandedViewController.swift in Sources */,
+				475ED2F31E52592D00D5BE71 /* CoreDataManager.swift in Sources */,
 				477D769E1E4CF124002B235C /* ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -380,6 +424,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "SAP-container/SAP-container.entitlements";
 				DEVELOPMENT_TEAM = 776YQQ7A2B;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -399,6 +444,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "SAP-container/SAP-container.entitlements";
 				DEVELOPMENT_TEAM = 776YQQ7A2B;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -436,6 +482,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		475ED2F41E525A1800D5BE71 /* AdientSapStore.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				475ED2F51E525A1800D5BE71 /* AdientSapStore.xcdatamodel */,
+			);
+			currentVersion = 475ED2F51E525A1800D5BE71 /* AdientSapStore.xcdatamodel */;
+			path = AdientSapStore.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 514C9FF11D5F90D5005D70E0 /* Project object */;
 }

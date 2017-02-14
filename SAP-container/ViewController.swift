@@ -23,11 +23,53 @@ class ViewController: UIViewController, WKNavigationDelegate {
 		view = webView
 	}
 
-	override func viewDidLoad() {
-		super.viewDidLoad()
+    func do_cookies(_ originalRequest:URLRequest)->URLRequest {
+        var request:URLRequest = originalRequest
+        let validDomain:NSString = request.url!.host! as NSString
+        let requestIsSecure:Bool = (request.url!.scheme == "https" as String?)
+    
+        var array:NSMutableArray = NSMutableArray()
+        if let cookies = HTTPCookieStorage.shared.cookies {
+          for cookie in cookies {
+            // Don't even bother with values containing a `'`
+                print(cookie)
+            if cookie.name.range(of: "'") != nil {
+                
+                NSLog("Skipping \(String(describing: cookie.properties)) because it contains a '")
+                continue;
+            }
+    
+            // Is the cookie for current domain?
+            if (!cookie.domain.hasSuffix(validDomain as String)) {
+                NSLog("Skipping \(String(describing: cookie.properties)) (because not \(validDomain))\n")
+                continue;
+            }
+    
+            // Are we secure only?
+            if (cookie.isSecure && !requestIsSecure) {
+                NSLog("Skipping \(String(describing: cookie.properties)) (because \(String(describing: request.url?.absoluteString)) not secure)\n")
+                continue;
+            }
+    
+            let value:String = String(format:"%@=%@", cookie.name, cookie.value)
+            print(String(format:"cookie name = %@, value = %@", cookie.name, cookie.value))
+            array.add(value)
+            }
+        }
+    
+        let header = array.componentsJoined(by:";")
+        request.setValue(header, forHTTPHeaderField:"Cookie")
+        return request;
+    }
 
-		let url = URL(string: "https://" + websites[0])!
-		webView.load(URLRequest(url: url))
+    override func viewDidLoad() {
+		super.viewDidLoad()
+        let theUrl = URL(string:"https://" + websites[0])
+        var myRequest:URLRequest = URLRequest(url: theUrl!)
+        let finalRequest = do_cookies(myRequest)
+        
+		webView.load(finalRequest)
+
 		webView.allowsBackForwardNavigationGestures = true
 
 		navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Open", style: .plain, target: self, action: #selector(openTapped))

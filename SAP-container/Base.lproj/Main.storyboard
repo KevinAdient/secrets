@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="ULd-18-R1r">
             <objects>
-                <viewController id="CSU-5f-qCv" sceneMemberID="viewController">
+                <viewController id="CSU-5f-qCv" customClass="LoginViewController" customModule="SAP_container" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8wd-Zg-rrL"/>
                         <viewControllerLayoutGuide type="bottom" id="cBN-57-KCl"/>
@@ -26,21 +26,43 @@
                                 <rect key="frame" x="271" y="593" width="64" height="30"/>
                                 <state key="normal" title="LoggedIn"/>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="0Ab-qZ-AoB"/>
+                                    <action selector="LoggedIn:" destination="CSU-5f-qCv" eventType="touchUpInside" id="n5r-zF-7QT"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="viewSegue" id="0Ab-qZ-AoB"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3bQ-Xo-fVN">
+                                <rect key="frame" x="32" y="593" width="100" height="30"/>
+                                <state key="normal" title="FingerPrint"/>
+                                <connections>
+                                    <action selector="FingerPrintChallenge:" destination="CSU-5f-qCv" eventType="touchUpInside" id="erL-rE-jA3"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YIK-TA-Ebh">
+                                <rect key="frame" x="16" y="556" width="343" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="3bQ-Xo-fVN" firstAttribute="leading" secondItem="A0I-ug-RbF" secondAttribute="leadingMargin" constant="16" id="1Rg-FE-o4v"/>
+                            <constraint firstItem="teS-0u-txM" firstAttribute="top" secondItem="YIK-TA-Ebh" secondAttribute="bottom" constant="16" id="2un-E1-on2"/>
+                            <constraint firstItem="cBN-57-KCl" firstAttribute="top" secondItem="3bQ-Xo-fVN" secondAttribute="bottom" constant="44" id="3kY-ap-CYV"/>
                             <constraint firstItem="cBN-57-KCl" firstAttribute="top" secondItem="teS-0u-txM" secondAttribute="bottom" constant="44" id="AGq-ez-h6N"/>
                             <constraint firstAttribute="trailingMargin" secondItem="teS-0u-txM" secondAttribute="trailing" constant="24" id="CFG-Vk-AVg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="YIK-TA-Ebh" secondAttribute="trailing" id="YZX-CG-MLm"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="YIK-TA-Ebh" secondAttribute="leading" id="dps-1k-3XQ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Df2-2F-Si0"/>
+                    <connections>
+                        <outlet property="messageLabel" destination="YIK-TA-Ebh" id="fgP-yo-Cfr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ayq-Yt-bhT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2384.8000000000002" y="-561.76911544227892"/>
+            <point key="canvasLocation" x="2461.5999999999999" y="-559.07046476761627"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -59,7 +81,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3330" y="-564"/>
+            <point key="canvasLocation" x="3318" y="-559"/>
         </scene>
         <!--Adient Branded View Controller-->
         <scene sceneID="dCg-dY-wz9">
@@ -97,7 +119,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                         <state key="normal" title="Continue"/>
                                         <connections>
-                                            <segue destination="AeI-BI-LjL" kind="show" id="2uE-tg-JKO"/>
+                                            <segue destination="h3z-cQ-wTA" kind="show" id="WiQ-Xe-av0"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -130,22 +152,22 @@
             <point key="canvasLocation" x="722" y="-559"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="ok4-2m-El6">
+        <scene sceneID="573-8A-I28">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="AeI-BI-LjL" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="h3z-cQ-wTA" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="WGs-7I-dfn">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Mnr-eP-SU4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="CSU-5f-qCv" kind="relationship" relationship="rootViewController" id="JgG-TJ-BH3"/>
+                        <segue destination="CSU-5f-qCv" kind="relationship" relationship="rootViewController" id="7CZ-cc-3xc"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="01c-wK-1yE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="geE-mH-n2a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1521" y="-563"/>
+            <point key="canvasLocation" x="1634" y="-559"/>
         </scene>
     </scenes>
 </document>

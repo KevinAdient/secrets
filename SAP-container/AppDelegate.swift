@@ -1,9 +1,9 @@
 //
 //  AppDelegate.swift
-//  Project4
+//  SAP-container
 //
-//  Created by TwoStraws on 13/08/2016.
-//  Copyright © 2016 Paul Hudson. All rights reserved.
+//  Created by Peter M. Gits
+//  Copyright © 2017 Adient. All rights reserved.
 //
 
 import UIKit
@@ -15,7 +15,7 @@ import DigitsKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	var window: UIWindow?
-
+    var myCoreDataManager: CoreDataManager = CoreDataManager()
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
 		// Override point for customization after application launch.
