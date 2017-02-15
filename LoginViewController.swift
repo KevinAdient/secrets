@@ -25,13 +25,13 @@ class LoginViewController: UIViewController
     let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
     
     @IBOutlet weak var messageLabel: UILabel!
-    
+/*
     @IBAction func LoggedIn(_ sender: Any) {
         print("LoggedIn")
         print("End Time",Date())
         self.performSegue(withIdentifier: "viewSegue", sender: self)
     }
-    
+ */   
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -49,6 +49,7 @@ class LoginViewController: UIViewController
         theCredentials.myUserDetails?.systemVersion = theDevice.systemVersion
         theCredentials.myUserDetails?.deviceName = theDevice.name
         theCredentials.myUserDetails?.uidid = UIDevice.current.identifierForVendor?.uuidString
+        print(theCredentials.myUserDetails as Any)
         let myAttrService = "SAP-container"
 
         let myAttrAccount = theCredentials.myUserDetails?.uidid
@@ -129,20 +130,20 @@ class LoginViewController: UIViewController
             } else {
                 print("SELECT Error: \(select_status).")
             }
+            self.crashButtonTapped(self)
         }
-        self.crashButtonTapped(self)
     }
         
     override func viewDidLoad() {
         // Do any additional setup after loading the view.
         super.viewDidLoad()
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        //let appDelegate = UIApplication.shared.delegate as! AppDelegate
         
-        theCredentials.myUserDetails = appDelegate.myCoreDataManager.fetchUserDetails()
+        theCredentials.myUserDetails = self.appDelegate.myCoreDataManager.fetchUserDetails()
         if(theCredentials.myUserDetails == nil){
             print("they haven't signed in successfully yet")
             //create the entity here
-            theCredentials.myUserDetails = (NSEntityDescription.insertNewObject(forEntityName: "UserDeviceDetails", into: appDelegate.myCoreDataManager.managedObjectContext) as! UserDeviceDetails)
+            theCredentials.myUserDetails = (NSEntityDescription.insertNewObject(forEntityName: "UserDeviceDetails", into: self.appDelegate.myCoreDataManager.managedObjectContext) as! UserDeviceDetails)
         }else {
             print(theCredentials.myUserDetails as Any)
             print(theCredentials.myUserDetails?.authenticatedPhoneNumber as Any)
@@ -167,14 +168,17 @@ class LoginViewController: UIViewController
             self.digitsService()
             theCredentials.myUserDetails?.iDigitsCounter = (theCredentials.myUserDetails?.iDigitsInterval)!
         }else {
-            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            appDelegate.myCoreDataManager.saveContext()
+            if (theCredentials.myUserDetails?.hasChanges)! {
+                self.appDelegate.myCoreDataManager.saveContext()
+            }
             self.performSegue(withIdentifier: "viewSegue", sender: self)
         }
+//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
     }
     
     func digitsService() -> Void {
         let digits = Digits.sharedInstance()
+        //we wouldn't be here if the iDigitsCounter weren't zero or time to be refreshed
         //we got here and need to log out if we want the prompt to show
         //if theCredentials.myUserDetails?.userID != nil {
             digits.logOut()
@@ -198,22 +202,18 @@ class LoginViewController: UIViewController
         if ((session?.userID) != nil){
             theCredentials.myUserDetails?.userID = session?.userID
             theCredentials.myUserDetails?.authenticatedPhoneNumber = session?.phoneNumber
+            theCredentials.myUserDetails?.digitsAuthToken = session?.authToken
+            theCredentials.myUserDetails?.digitsAuthToken = session?.authTokenSecret
             print("Phone Number confirmed: \(String(describing: session?.phoneNumber))\n")
             print(session!)
-            if(session?.phoneNumber.lengthOfBytes(using:String.Encoding.ascii) != 0 && session?.userID.lengthOfBytes(using:String.Encoding.ascii) != 0){
-                    print("succeeded")
-                let appDelegate = UIApplication.shared.delegate as! AppDelegate
-                appDelegate.myCoreDataManager.saveContext()
+            if(session?.phoneNumber.lengthOfBytes(using:String.Encoding.ascii) != 0 && session?.userID.lengthOfBytes(using:String.Encoding.ascii) != 0)
+            {
+                print("succeeded")
+                if (theCredentials.myUserDetails?.hasChanges)! {
+                    self.appDelegate.myCoreDataManager.saveContext()
+                }
                 self.performSegue(withIdentifier: "viewSegue", sender: self)
                 return
-
-                /*
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                    self.checkFingerprint()
-                    return
-                }
-                self.performSelector(onMainThread: #selector(self.checkFingerprint), with: nil, waitUntilDone: true)
-                */
             }
             else{
                 print("failed, don't proceed")
@@ -232,4 +232,11 @@ class LoginViewController: UIViewController
         }
     }
 }
-    
+/*
+ DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+ self.checkFingerprint()
+ return
+ }
+ self.performSelector(onMainThread: #selector(self.checkFingerprint), with: nil, waitUntilDone: true)
+ */
+

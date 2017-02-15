@@ -6,6 +6,8 @@
         <attribute name="authenticatedPhoneNumber" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="countryName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="deviceName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="digitsAuthToken" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="digitsAuthTokenSecret" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="emailID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="globalID" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
@@ -29,6 +31,6 @@
         <attribute name="userID" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
     </entity>
     <elements>
-        <element name="UserDeviceDetails" positionX="-63" positionY="-18" width="128" height="435"/>
+        <element name="UserDeviceDetails" positionX="-63" positionY="-18" width="128" height="465"/>
     </elements>
 </model>

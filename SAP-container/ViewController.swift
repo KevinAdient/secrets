@@ -64,6 +64,7 @@ class ViewController: UIViewController, WKNavigationDelegate {
 
     override func viewDidLoad() {
 		super.viewDidLoad()
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
         let theUrl = URL(string:"https://" + websites[0])
         var myRequest:URLRequest = URLRequest(url: theUrl!)
         let finalRequest = do_cookies(myRequest)

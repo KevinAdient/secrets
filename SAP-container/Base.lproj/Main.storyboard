@@ -22,22 +22,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="teS-0u-txM">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="teS-0u-txM">
                                 <rect key="frame" x="271" y="593" width="64" height="30"/>
                                 <state key="normal" title="LoggedIn"/>
                                 <connections>
                                     <action selector="LoggedIn:" destination="CSU-5f-qCv" eventType="touchUpInside" id="n5r-zF-7QT"/>
-                                    <segue destination="BYZ-38-t0r" kind="show" identifier="viewSegue" id="0Ab-qZ-AoB"/>
+                                    <segue destination="BYZ-38-t0r" kind="showDetail" identifier="viewSegue" action="showViewController:sender:" id="0Ab-qZ-AoB"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3bQ-Xo-fVN">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3bQ-Xo-fVN">
                                 <rect key="frame" x="32" y="593" width="100" height="30"/>
                                 <state key="normal" title="FingerPrint"/>
                                 <connections>
                                     <action selector="FingerPrintChallenge:" destination="CSU-5f-qCv" eventType="touchUpInside" id="erL-rE-jA3"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YIK-TA-Ebh">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YIK-TA-Ebh">
                                 <rect key="frame" x="16" y="556" width="343" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
