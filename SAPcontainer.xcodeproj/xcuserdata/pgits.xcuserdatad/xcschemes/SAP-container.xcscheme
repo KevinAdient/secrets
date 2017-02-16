@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "514C9FF81D5F90D5005D70E0"
-               BuildableName = "SAP-container.app"
-               BlueprintName = "SAP-container"
-               ReferencedContainer = "container:SAP-container.xcodeproj">
+               BuildableName = "SAPcontainer.app"
+               BlueprintName = "SAPcontainer"
+               ReferencedContainer = "container:SAPcontainer.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "514C9FF81D5F90D5005D70E0"
-            BuildableName = "SAP-container.app"
-            BlueprintName = "SAP-container"
-            ReferencedContainer = "container:SAP-container.xcodeproj">
+            BuildableName = "SAPcontainer.app"
+            BlueprintName = "SAPcontainer"
+            ReferencedContainer = "container:SAPcontainer.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -56,9 +56,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "514C9FF81D5F90D5005D70E0"
-            BuildableName = "SAP-container.app"
-            BlueprintName = "SAP-container"
-            ReferencedContainer = "container:SAP-container.xcodeproj">
+            BuildableName = "SAPcontainer.app"
+            BlueprintName = "SAPcontainer"
+            ReferencedContainer = "container:SAPcontainer.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -75,9 +75,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "514C9FF81D5F90D5005D70E0"
-            BuildableName = "SAP-container.app"
-            BlueprintName = "SAP-container"
-            ReferencedContainer = "container:SAP-container.xcodeproj">
+            BuildableName = "SAPcontainer.app"
+            BlueprintName = "SAPcontainer"
+            ReferencedContainer = "container:SAPcontainer.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

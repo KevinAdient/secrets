@@ -75,7 +75,7 @@
 		477D76C51E4CFF8F002B235C /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		477D76C61E4CFF8F002B235C /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		47B45AAE1E4E45BC0011103C /* SAP-container.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "SAP-container.entitlements"; sourceTree = "<group>"; };
-		514C9FF91D5F90D5005D70E0 /* SAP-container.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SAP-container.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		514C9FF91D5F90D5005D70E0 /* SAPcontainer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SAPcontainer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,7 +171,7 @@
 		514C9FFA1D5F90D5005D70E0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				514C9FF91D5F90D5005D70E0 /* SAP-container.app */,
+				514C9FF91D5F90D5005D70E0 /* SAPcontainer.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -179,9 +179,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		514C9FF81D5F90D5005D70E0 /* SAP-container */ = {
+		514C9FF81D5F90D5005D70E0 /* SAPcontainer */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 514CA00B1D5F90D5005D70E0 /* Build configuration list for PBXNativeTarget "SAP-container" */;
+			buildConfigurationList = 514CA00B1D5F90D5005D70E0 /* Build configuration list for PBXNativeTarget "SAPcontainer" */;
 			buildPhases = (
 				514C9FF51D5F90D5005D70E0 /* Sources */,
 				514C9FF61D5F90D5005D70E0 /* Frameworks */,
@@ -192,9 +192,9 @@
 			);
 			dependencies = (
 			);
-			name = "SAP-container";
+			name = SAPcontainer;
 			productName = Project4;
-			productReference = 514C9FF91D5F90D5005D70E0 /* SAP-container.app */;
+			productReference = 514C9FF91D5F90D5005D70E0 /* SAPcontainer.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -228,7 +228,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 514C9FF41D5F90D5005D70E0 /* Build configuration list for PBXProject "SAP-container" */;
+			buildConfigurationList = 514C9FF41D5F90D5005D70E0 /* Build configuration list for PBXProject "SAPcontainer" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -241,7 +241,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				514C9FF81D5F90D5005D70E0 /* SAP-container */,
+				514C9FF81D5F90D5005D70E0 /* SAPcontainer */,
 			);
 		};
 /* End PBXProject section */
@@ -469,7 +469,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		514C9FF41D5F90D5005D70E0 /* Build configuration list for PBXProject "SAP-container" */ = {
+		514C9FF41D5F90D5005D70E0 /* Build configuration list for PBXProject "SAPcontainer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				514CA0091D5F90D5005D70E0 /* Debug */,
@@ -478,7 +478,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		514CA00B1D5F90D5005D70E0 /* Build configuration list for PBXNativeTarget "SAP-container" */ = {
+		514CA00B1D5F90D5005D70E0 /* Build configuration list for PBXNativeTarget "SAPcontainer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				514CA00C1D5F90D5005D70E0 /* Debug */,
