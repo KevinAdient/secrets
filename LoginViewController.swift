@@ -103,7 +103,7 @@ class LoginViewController: UIViewController
                 kSecAttrService: myAttrService,
                 kSecAttrAccount: myAttrAccount,
                 kSecReturnData: true,
-                kSecUseOperationPrompt: "Authenticate to access secret message"
+                kSecUseOperationPrompt: "Authenticate: you are the owner of this device"
             ]
             var extractedData: CFTypeRef?
             let select_status = SecItemCopyMatching(select_query, &extractedData)

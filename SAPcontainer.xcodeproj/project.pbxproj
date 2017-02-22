@@ -34,8 +34,6 @@
 		477D76C81E4CFF8F002B235C /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 477D76C61E4CFF8F002B235C /* Crashlytics.framework */; };
 		47C689C51E55F8750091728F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C689BF1E55F8750091728F /* AppDelegate.swift */; };
 		47C689C61E55F8750091728F /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C689C01E55F8750091728F /* CoreDataManager.swift */; };
-		47C689C71E55F8750091728F /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 47C689C11E55F8750091728F /* Info.plist */; };
-		47C689C81E55F8750091728F /* UserDeviceDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C689C31E55F8750091728F /* UserDeviceDetails.swift */; };
 		47C689C91E55F8750091728F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C689C41E55F8750091728F /* ViewController.swift */; };
 		47C689CF1E55FC7C0091728F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47C689CB1E55FC7C0091728F /* LaunchScreen.storyboard */; };
 		47C689D01E55FC7C0091728F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47C689CD1E55FC7C0091728F /* Main.storyboard */; };
@@ -71,7 +69,6 @@
 		47C689C01E55F8750091728F /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataManager.swift; path = SAPcontainer/CoreDataManager.swift; sourceTree = "<group>"; };
 		47C689C11E55F8750091728F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = SAPcontainer/Info.plist; sourceTree = "<group>"; };
 		47C689C21E55F8750091728F /* SAPcontainer.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; name = SAPcontainer.entitlements; path = SAPcontainer/SAPcontainer.entitlements; sourceTree = "<group>"; };
-		47C689C31E55F8750091728F /* UserDeviceDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserDeviceDetails.swift; path = SAPcontainer/UserDeviceDetails.swift; sourceTree = "<group>"; };
 		47C689C41E55F8750091728F /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = SAPcontainer/ViewController.swift; sourceTree = "<group>"; };
 		47C689CC1E55FC7C0091728F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		47C689CE1E55FC7C0091728F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
@@ -141,7 +138,6 @@
 			children = (
 				47C689BF1E55F8750091728F /* AppDelegate.swift */,
 				47C689C41E55F8750091728F /* ViewController.swift */,
-				47C689C31E55F8750091728F /* UserDeviceDetails.swift */,
 				47C689C01E55F8750091728F /* CoreDataManager.swift */,
 				47C689C11E55F8750091728F /* Info.plist */,
 				47C689C21E55F8750091728F /* SAPcontainer.entitlements */,
@@ -267,7 +263,6 @@
 				477D76B41E4CF1CC002B235C /* chair-3-just-seat.png in Resources */,
 				477D76AB1E4CF1BB002B235C /* AisForAdientReversed.png in Resources */,
 				477D76BE1E4CF1EA002B235C /* seat-back.png in Resources */,
-				47C689C71E55F8750091728F /* Info.plist in Resources */,
 				477D76B71E4CF1CC002B235C /* chair-3@2x.png in Resources */,
 				477D76BF1E4CF1EA002B235C /* seat-back@2x.png in Resources */,
 				477D76B61E4CF1CC002B235C /* chair-3.png in Resources */,
@@ -310,7 +305,6 @@
 				47C689C51E55F8750091728F /* AppDelegate.swift in Sources */,
 				477D76A71E4CF1BB002B235C /* AdientBrandedViewController.swift in Sources */,
 				47C689C61E55F8750091728F /* CoreDataManager.swift in Sources */,
-				47C689C81E55F8750091728F /* UserDeviceDetails.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
