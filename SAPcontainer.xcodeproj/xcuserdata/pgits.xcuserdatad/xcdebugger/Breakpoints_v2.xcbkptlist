@@ -343,7 +343,7 @@
                   moduleName = "SAPcontainer"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/pgits/dev/adient/sap/LoginViewController.swift"
-                  timestampString = "509573961.703646"
+                  timestampString = "509577300.967213"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "210"
@@ -358,7 +358,7 @@
                   moduleName = "SAPcontainer"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/pgits/dev/adient/sap/LoginViewController.swift"
-                  timestampString = "509573961.705517"
+                  timestampString = "509577300.968595"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "212"
@@ -781,6 +781,102 @@
             startingLineNumber = "170"
             endingLineNumber = "170"
             landmarkName = "checkFingerprint()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Siren/Siren.swift"
+            timestampString = "509577034.488128"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "373"
+            endingLineNumber = "373"
+            landmarkName = "processEnterpriseVersionCheck(withResults:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Siren/Siren.swift"
+            timestampString = "509577300.8437"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "415"
+            endingLineNumber = "415"
+            landmarkName = "processEnterpriseVersionCheck(withResults:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Siren/Siren.swift"
+            timestampString = "509577300.8437"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "637"
+            endingLineNumber = "637"
+            landmarkName = "isAppStoreVersionNewer()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SAPcontainer.Siren.(isAppStoreVersionNewer in _425DA7818066003510646221535DBB78) () -&gt; Swift.Bool"
+                  moduleName = "SAPcontainer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pgits/dev/adient/sap/Siren/Siren.swift"
+                  timestampString = "509577301.019328"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "637"
+                  endingLineNumber = "637"
+                  offsetFromSymbolStart = "22">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SAPcontainer.Siren.(isAppStoreVersionNewer in _425DA7818066003510646221535DBB78) () -&gt; Swift.Bool"
+                  moduleName = "SAPcontainer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pgits/dev/adient/sap/Siren/Siren.swift"
+                  timestampString = "509577301.020685"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "637"
+                  endingLineNumber = "637"
+                  offsetFromSymbolStart = "168">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Siren/Siren.swift"
+            timestampString = "509577384.294422"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "382"
+            endingLineNumber = "382"
+            landmarkName = "processEnterpriseVersionCheck(withResults:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

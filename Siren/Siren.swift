@@ -367,7 +367,7 @@ private extension Siren {
     }
 
     func processEnterpriseVersionCheck(withResults results: [String: Any]) {
-        storeVersionCheckDate() // last time we did a comparison
+//HERE        storeVersionCheckDate() // last time we did a comparison
         //items ->dictionary metadata
                     //metadata -> bundle-version
         let metaDataDic0 = results["items"] as! NSArray
@@ -379,6 +379,7 @@ private extension Siren {
         let metaDataDic2 = metaDataDic1["metadata"] as! [String:Any]
         let versionNum0 = metaDataDic2["bundle-version"] as! String
         print(versionNum0)
+        currentAppStoreVersion = versionNum0
     /*
         let metaDataDic:[String, Any] = results.object(forKey:"items" as String) as! <Dictionary:key [String, Any]>
         let versionNumber:String = metaDataDic.object(forKey:"bundle-version") as! String
