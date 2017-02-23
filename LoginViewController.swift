@@ -140,6 +140,7 @@ class LoginViewController: UIViewController
         //let appDelegate = UIApplication.shared.delegate as! AppDelegate
         
         theCredentials.myUserDetails = self.appDelegate.myCoreDataManager.fetchUserDetails()
+
         if(theCredentials.myUserDetails == nil){
             print("they haven't signed in successfully yet")
             //create the entity here
@@ -151,23 +152,32 @@ class LoginViewController: UIViewController
             print(theCredentials.myUserDetails?.iDigitsCounter as Any)
             print(theCredentials.myUserDetails?.iFingerprintCounter as Any)
         }
+        
+        let iFingerPrintCount:NSNumber = NSNumber(integerLiteral:Int(theCredentials.myUserDetails!.iFingerprintCounter))
+        print("fingerprint count = \(iFingerPrintCount )\n")
+        let iDigitsCount:NSNumber = NSNumber(integerLiteral:Int(theCredentials.myUserDetails!.iDigitsCounter))
+        print("digits count = \(iDigitsCount)\n")
+        
+        setupSiren()
         self.checkFingerprint()
     }
     
     func checkFingerprint()->Void {
-        if((theCredentials.myUserDetails?.iFingerprintCounter)! <= 0){
+        if((theCredentials.myUserDetails?.iFingerprintCounter)! < 0){
             self.FingerPrintChallenge(self)
             theCredentials.myUserDetails?.iFingerprintCounter = (theCredentials.myUserDetails?.iFingerprintInterval)!
         }else {
+            theCredentials.myUserDetails?.iFingerprintCounter = (theCredentials.myUserDetails?.iFingerprintCounter)! - 1
             self.performSelector(onMainThread: #selector(self.checkDigits), with: nil, waitUntilDone: false)
         }
     }
     
     func checkDigits()->Void {
-        if((theCredentials.myUserDetails?.iDigitsCounter)! <= 0){
+        if((theCredentials.myUserDetails?.iDigitsCounter)! < 0){
             self.digitsService()
             theCredentials.myUserDetails?.iDigitsCounter = (theCredentials.myUserDetails?.iDigitsInterval)!
         }else {
+            theCredentials.myUserDetails?.iDigitsCounter = (theCredentials.myUserDetails?.iDigitsCounter)! - 1
             if (theCredentials.myUserDetails?.hasChanges)! {
                 self.appDelegate.myCoreDataManager.saveContext()
             }
@@ -231,7 +241,73 @@ class LoginViewController: UIViewController
             Crashlytics.sharedInstance().crash()
         }
     }
+    func setupSiren() {
+        let siren = Siren.sharedInstance
+        
+        // Optional
+        siren.delegate = self
+        
+        // Optional
+        siren.debugEnabled = true
+        
+        // Optional
+        siren.appName = "SAPcontainer"
+        
+        // Optional - Defaults to .Option
+        //        siren.alertType = .Option // or .Force, .Skip, .None
+        
+        // Optional - Can set differentiated Alerts for Major, Minor, Patch, and Revision Updates (Must be called AFTER siren.alertType, if you are using siren.alertType)
+        siren.majorUpdateAlertType = .option
+        siren.minorUpdateAlertType = .option
+        siren.patchUpdateAlertType = .option
+        siren.revisionUpdateAlertType = .option
+        
+        // Optional - Sets all messages to appear in Spanish. Siren supports many other languages, not just English and Russian.
+        //        siren.forceLanguageLocalization = .Russian
+        
+        // Optional - Set this variable if your app is not available in the U.S. App Store. List of codes: https://developer.apple.com/library/content/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Appendices/AppStoreTerritories.html
+        //        siren.countryCode = ""
+        
+        // Optional - Set this variable if you would only like to show an alert if your app has been available on the store for a few days. The number 5 is used as an example.
+        //        siren.showAlertAfterCurrentVersionHasBeenReleasedForDays = 5
+        
+        // Required
+        siren.checkVersion(checkType: .immediately)
+    }
 }
+
+extension LoginViewController: SirenDelegate
+{
+    func sirenDidShowUpdateDialog(alertType: SirenAlertType) {
+        print(#function, alertType)
+    }
+    
+    func sirenUserDidCancel() {
+        print(#function)
+    }
+    
+    func sirenUserDidSkipVersion() {
+        print(#function)
+    }
+    
+    func sirenUserDidLaunchAppStore() {
+        print(#function)
+    }
+    
+    func sirenDidFailVersionCheck(error: NSError) {
+        print(#function, error)
+    }
+    
+    func sirenLatestVersionInstalled() {
+        print(#function, "Latest version of app is installed")
+    }
+    
+    // This delegate method is only hit when alertType is initialized to .none
+    func sirenDidDetectNewVersionWithoutAlert(message: String) {
+        print(#function, "\(message)")
+    }
+}
+
 /*
  DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
  self.checkFingerprint()

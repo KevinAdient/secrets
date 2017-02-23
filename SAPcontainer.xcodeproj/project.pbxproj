@@ -10,6 +10,10 @@
 		472E64351E4D093F00641681 /* DigitsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 472E64321E4D093F00641681 /* DigitsKit.framework */; };
 		472E64361E4D093F00641681 /* DigitsKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 472E64331E4D093F00641681 /* DigitsKitResources.bundle */; };
 		472E64371E4D093F00641681 /* TwitterCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 472E64341E4D093F00641681 /* TwitterCore.framework */; };
+		4752F1CA1E5F65D500744D0C /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4752F1C61E5F65D500744D0C /* Info.plist */; };
+		4752F1CB1E5F65D500744D0C /* Siren.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4752F1C71E5F65D500744D0C /* Siren.bundle */; };
+		4752F1CC1E5F65D500744D0C /* Siren.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4752F1C91E5F65D500744D0C /* Siren.swift */; };
+		4752F1CE1E5F7C5200744D0C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4752F1CD1E5F7C5200744D0C /* Assets.xcassets */; };
 		475ED2EF1E52578300D5BE71 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 475ED2EC1E52578300D5BE71 /* NotificationCenter.framework */; };
 		475ED2F01E52578300D5BE71 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 475ED2ED1E52578300D5BE71 /* UserNotifications.framework */; };
 		475ED2F11E52578300D5BE71 /* UserNotificationsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 475ED2EE1E52578300D5BE71 /* UserNotificationsUI.framework */; };
@@ -43,6 +47,11 @@
 		472E64321E4D093F00641681 /* DigitsKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DigitsKit.framework; sourceTree = "<group>"; };
 		472E64331E4D093F00641681 /* DigitsKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = DigitsKitResources.bundle; path = DigitsKit.framework/Versions/A/Resources/DigitsKitResources.bundle; sourceTree = "<group>"; };
 		472E64341E4D093F00641681 /* TwitterCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterCore.framework; sourceTree = "<group>"; };
+		4752F1C61E5F65D500744D0C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4752F1C71E5F65D500744D0C /* Siren.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Siren.bundle; sourceTree = "<group>"; };
+		4752F1C81E5F65D500744D0C /* Siren.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Siren.h; sourceTree = "<group>"; };
+		4752F1C91E5F65D500744D0C /* Siren.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Siren.swift; sourceTree = "<group>"; };
+		4752F1CD1E5F7C5200744D0C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = SAPcontainer/Assets.xcassets; sourceTree = "<group>"; };
 		475ED2EC1E52578300D5BE71 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		475ED2ED1E52578300D5BE71 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		475ED2EE1E52578300D5BE71 /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
@@ -93,6 +102,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4752F1C51E5F65D500744D0C /* Siren */ = {
+			isa = PBXGroup;
+			children = (
+				4752F1C61E5F65D500744D0C /* Info.plist */,
+				4752F1C71E5F65D500744D0C /* Siren.bundle */,
+				4752F1C81E5F65D500744D0C /* Siren.h */,
+				4752F1C91E5F65D500744D0C /* Siren.swift */,
+			);
+			path = Siren;
+			sourceTree = "<group>";
+		};
 		475ED2EB1E52578200D5BE71 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -136,6 +156,7 @@
 		47C689BE1E55F8450091728F /* SAPcontainer */ = {
 			isa = PBXGroup;
 			children = (
+				4752F1C51E5F65D500744D0C /* Siren */,
 				47C689BF1E55F8750091728F /* AppDelegate.swift */,
 				47C689C41E55F8750091728F /* ViewController.swift */,
 				47C689C01E55F8750091728F /* CoreDataManager.swift */,
@@ -166,6 +187,7 @@
 				472E64341E4D093F00641681 /* TwitterCore.framework */,
 				477D76C51E4CFF8F002B235C /* Fabric.framework */,
 				477D76C61E4CFF8F002B235C /* Crashlytics.framework */,
+				4752F1CD1E5F7C5200744D0C /* Assets.xcassets */,
 				477D76C11E4CFAB1002B235C /* MultiFactor */,
 				477D769F1E4CF1A1002B235C /* Branding */,
 				514C9FFA1D5F90D5005D70E0 /* Products */,
@@ -192,6 +214,7 @@
 				514C9FF61D5F90D5005D70E0 /* Frameworks */,
 				514C9FF71D5F90D5005D70E0 /* Resources */,
 				477D76C41E4CFEDB002B235C /* ShellScript */,
+				4752F1C01E5F2ED100744D0C /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -215,6 +238,7 @@
 					514C9FF81D5F90D5005D70E0 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 776YQQ7A2B;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.DataProtection = {
@@ -256,6 +280,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4752F1CA1E5F65D500744D0C /* Info.plist in Resources */,
 				477D76AA1E4CF1BB002B235C /* AdientSlantReversed@2x.png in Resources */,
 				477D76B51E4CF1CC002B235C /* chair-3-just-seat@2x.png in Resources */,
 				477D76AC1E4CF1BB002B235C /* AisForAdientReversed@2x.png in Resources */,
@@ -269,7 +294,9 @@
 				47C689D01E55FC7C0091728F /* Main.storyboard in Resources */,
 				477D76B91E4CF1CC002B235C /* crane_arm@2x.png in Resources */,
 				477D76B81E4CF1CC002B235C /* crane_arm.png in Resources */,
+				4752F1CB1E5F65D500744D0C /* Siren.bundle in Resources */,
 				477D76A91E4CF1BB002B235C /* AdientSlantReversed.png in Resources */,
+				4752F1CE1E5F7C5200744D0C /* Assets.xcassets in Resources */,
 				472E64361E4D093F00641681 /* DigitsKitResources.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -277,6 +304,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		4752F1C01E5F2ED100744D0C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/SAPcontainer/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/SAPcontainer/Carthage/Build/iOS/SwiftyJSON.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "";
+		};
 		477D76C41E4CFEDB002B235C /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -304,6 +346,7 @@
 				475ED2F61E525A1800D5BE71 /* AdientSapStore.xcdatamodeld in Sources */,
 				47C689C51E55F8750091728F /* AppDelegate.swift in Sources */,
 				477D76A71E4CF1BB002B235C /* AdientBrandedViewController.swift in Sources */,
+				4752F1CC1E5F65D500744D0C /* Siren.swift in Sources */,
 				47C689C61E55F8750091728F /* CoreDataManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -433,6 +476,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/SAPcontainer/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/SAPcontainer/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
@@ -456,6 +500,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/SAPcontainer/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/SAPcontainer/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
