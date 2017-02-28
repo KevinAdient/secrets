@@ -29,7 +29,7 @@
         <attribute name="systemVersion" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="uidid" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="userID" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
-        <attribute name="versionUrl" optional="YES" attributeType="String" defaultValueString="https://geekgaps.com/adient/ios/sap/manifest.plist" syncable="YES"/>
+        <attribute name="versionUrl" optional="YES" attributeType="String" defaultValueString="https://ag.adient.com/mobile/ios/sap-chargeback/manifest.plist" syncable="YES"/>
     </entity>
     <elements>
         <element name="UserDeviceDetails" positionX="-63" positionY="-18" width="128" height="480"/>
