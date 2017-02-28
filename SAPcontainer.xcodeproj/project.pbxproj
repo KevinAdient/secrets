@@ -36,6 +36,7 @@
 		477D76C31E4CFAFE002B235C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477D76C21E4CFAFE002B235C /* LoginViewController.swift */; };
 		477D76C71E4CFF8F002B235C /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 477D76C51E4CFF8F002B235C /* Fabric.framework */; };
 		477D76C81E4CFF8F002B235C /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 477D76C61E4CFF8F002B235C /* Crashlytics.framework */; };
+		47A374861E65CA3A00CBC254 /* ViewControllerExtendSessionCookie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A374851E65CA3A00CBC254 /* ViewControllerExtendSessionCookie.swift */; };
 		47C689C51E55F8750091728F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C689BF1E55F8750091728F /* AppDelegate.swift */; };
 		47C689C61E55F8750091728F /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C689C01E55F8750091728F /* CoreDataManager.swift */; };
 		47C689C91E55F8750091728F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C689C41E55F8750091728F /* ViewController.swift */; };
@@ -74,6 +75,7 @@
 		477D76C21E4CFAFE002B235C /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		477D76C51E4CFF8F002B235C /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		477D76C61E4CFF8F002B235C /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		47A374851E65CA3A00CBC254 /* ViewControllerExtendSessionCookie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerExtendSessionCookie.swift; sourceTree = "<group>"; };
 		47C689BF1E55F8750091728F /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = SAPcontainer/AppDelegate.swift; sourceTree = "<group>"; };
 		47C689C01E55F8750091728F /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataManager.swift; path = SAPcontainer/CoreDataManager.swift; sourceTree = "<group>"; };
 		47C689C11E55F8750091728F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = SAPcontainer/Info.plist; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 				4752F1C51E5F65D500744D0C /* Siren */,
 				47C689BF1E55F8750091728F /* AppDelegate.swift */,
 				47C689C41E55F8750091728F /* ViewController.swift */,
+				47A374851E65CA3A00CBC254 /* ViewControllerExtendSessionCookie.swift */,
 				47C689C01E55F8750091728F /* CoreDataManager.swift */,
 				47C689C11E55F8750091728F /* Info.plist */,
 				47C689C21E55F8750091728F /* SAPcontainer.entitlements */,
@@ -340,6 +343,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				47C689C91E55F8750091728F /* ViewController.swift in Sources */,
+				47A374861E65CA3A00CBC254 /* ViewControllerExtendSessionCookie.swift in Sources */,
 				477D76C31E4CFAFE002B235C /* LoginViewController.swift in Sources */,
 				477D76A81E4CF1BB002B235C /* AdientSeatBrandedCustomView.swift in Sources */,
 				477D76BD1E4CF1EA002B235C /* QCMethod.swift in Sources */,

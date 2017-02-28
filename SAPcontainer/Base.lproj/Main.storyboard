@@ -67,10 +67,10 @@
             </objects>
             <point key="canvasLocation" x="2461.5999999999999" y="-559.07046476761627"/>
         </scene>
-        <!--View Controller-->
+        <!--View Controller Extend Session Cookie-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SAPcontainer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewControllerExtendSessionCookie" customModule="SAPcontainer" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
