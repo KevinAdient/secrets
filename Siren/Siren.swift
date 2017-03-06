@@ -457,8 +457,9 @@ private extension Siren {
     func iEnterpriseURLFromString() throws -> URL {
         var components = URLComponents()
         components.scheme = "https"
-        components.host = "geekgaps.com"
-        components.path = "/adient/ios/sap/manifest.plist"
+        components.host = "ag.adient.com"
+        //https://ag.adient.com/mobile/ios/sap-chargeback/manifest.plist
+        components.path = "/mobile/ios/sap-chargeback/manifest.plist"
         
         //var items: [URLQueryItem] = [URLQueryItem(name: "bundleId", value: Bundle.bundleID())]
         
@@ -704,7 +705,7 @@ private extension Siren {
     }
 
     func launchEnterpriseAppStore(){
-        let iEnterpriseString =  "https://geekgaps.com/adient/ios/sap/sap.html"
+        let iEnterpriseString =  "https://ag.adient.com/mobile/index.html"
         let iEnterpriseURL = URL(string: iEnterpriseString)
         
         DispatchQueue.main.async {

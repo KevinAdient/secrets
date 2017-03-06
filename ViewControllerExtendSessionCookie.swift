@@ -38,7 +38,7 @@ class ViewControllerExtendSessionCookie: UIViewController, WKNavigationDelegate,
         self.webView = WKWebView(frame: UIScreen.main.bounds/*webViewContainer.bounds*/, configuration: webViewConfig)
     }
     
-    ///Generates script to create given cookies
+    ///Generates script to retrieve cookies after document is loaded
     public func getJSCookiesString(cookies: [HTTPCookie]) -> String {
         var result = ""
         let dateFormatter = DateFormatter()
@@ -66,7 +66,7 @@ class ViewControllerExtendSessionCookie: UIViewController, WKNavigationDelegate,
      }
      */
     
-    
+    // adds the cookies that are already stored before the request happens
     func do_cookies(_ originalRequest:URLRequest)->URLRequest {
         var request:URLRequest = originalRequest
         request.httpShouldHandleCookies = true
@@ -110,83 +110,7 @@ class ViewControllerExtendSessionCookie: UIViewController, WKNavigationDelegate,
         request.setValue(header, forHTTPHeaderField:"Cookie")
         return request;
     }
-    /*
-     var webConfig:WKWebViewConfiguration {
-     get {
-     
-     // Create WKWebViewConfiguration instance
-     let webCfg:WKWebViewConfiguration = WKWebViewConfiguration()
-     
-     // Setup WKUserContentController instance for injecting user script
-     let userController:WKUserContentController = WKUserContentController()
-     
-     //add script cookie
-     let jsCookieScript:String = String.init(describing:"var cookieNames = document.cookie.split('; ').map(function(cookie) { return cookie.split('=')[0] } );\n", encoding:String.Encoding.utf8)
-     let scriptGetCookies = WKUserScript(source: jsCookieScript, injectionTime: .atDocumentEnd, forMainFrameOnly: true)
-     
-     userController.addUserScript(scriptGetCookies)
-     
-     webCfg.userContentController = userController;
-     
-     return webCfg;
-     }
-     }
-     
-     // Get the currently set cookie names in javascriptland
-     
-     
-     for (NSHTTPCookie *cookie in [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies]) {
-     // Skip cookies that will break our script
-     if ([cookie.value rangeOfString:@"'"].location != NSNotFound) {
-     continue;
-     }
-     
-     // Create a line that appends this cookie to the web view's document's cookies
-     [script appendFormat:@"if (cookieNames.indexOf('%@') == -1) { document.cookie='%@'; };\n", cookie.name, cookie.wn_javascriptString];
-     }
-     
-     WKUserContentController *userContentController = [[WKUserContentController alloc] init];
-     WKUserScript *cookieInScript = [[WKUserScript alloc] initWithSource:script
-     injectionTime:WKUserScriptInjectionTimeAtDocumentStart
-     forMainFrameOnly:NO];
-     [userContentController addUserScript:cookieInScript];
-     
-     // Create a config out of that userContentController and specify it when we create our web view.
-     WKWebViewConfiguration *config = [[WKWebViewConfiguration alloc] init];
-     config.userContentController = userContentController;
-     
-     self.webView = [[WKWebView alloc] initWithFrame:webView.bounds configuration:config];
-     Dealing with cookie changes
-     
-     We also need to deal with the server changing a cookie's value. This means adding another script to call back out of the web view we are creating to update our NSHTTPCookieStorage.
-     
-     WKUserScript *cookieOutScript = [[WKUserScript alloc] initWithSource:@"window.webkit.messageHandlers.updateCookies.postMessage(document.cookie);"
-     injectionTime:WKUserScriptInjectionTimeAtDocumentStart
-     forMainFrameOnly:NO];
-     [userContentController addUserScript:cookieOutScript];
-     
-     [userContentController addScriptMessageHandler:webView
-     name:@"updateCookies"];
-     and implementing the delegate method to update any cookies that have changed, making sure that we are only updating cookies from the current domain!
-     
-     - (void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message {
-     NSArray<NSString *> *cookies = [message.body componentsSeparatedByString:@"; "];
-     for (NSString *cookie in cookies) {
-     // Get this cookie's name and value
-     NSArray<NSString *> *comps = [cookie componentsSeparatedByString:@"="];
-     if (comps.count < 2) {
-     continue;
-     }
-     
-     // Get the cookie in shared storage with that name
-     NSHTTPCookie *localCookie = nil;
-     for (NSHTTPCookie *c in [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL:self.wk_webView.URL]) {
-     if ([c.name isEqualToString:comps[0]]) {
-     localCookie = c;
-     break;
-     }
-     }
-     */
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.setNavigationBarHidden(true, animated: true)
@@ -199,9 +123,6 @@ class ViewControllerExtendSessionCookie: UIViewController, WKNavigationDelegate,
         self.webView.load(finalRequest)
         
         webView.allowsBackForwardNavigationGestures = true
-        /*
-         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Open", style: .plain, target: self, action: #selector(openTapped))
-         */
         progressView = UIProgressView(progressViewStyle: .default)
         progressView.sizeToFit()
         let progressButton = UIBarButtonItem(customView: progressView)
@@ -268,7 +189,9 @@ class ViewControllerExtendSessionCookie: UIViewController, WKNavigationDelegate,
                 cookieProperties[HTTPCookiePropertyKey.domain] = cookie.domain
                 cookieProperties[HTTPCookiePropertyKey.path] = cookie.path
                 cookieProperties[HTTPCookiePropertyKey.version] = NSNumber(value: cookie.version)
-                cookieProperties[HTTPCookiePropertyKey.expires] = NSDate().addingTimeInterval(31536000)
+                cookieProperties[HTTPCookiePropertyKey.expires] = //NSDate().addingTimeInterval(31536000)
+                    NSDate().addingTimeInterval(-1)
+
                 //cookieProperties[HTTPCookiePropertyKey.]
                 
                 let newCookie = HTTPCookie(properties: cookieProperties as! [HTTPCookiePropertyKey : Any])
