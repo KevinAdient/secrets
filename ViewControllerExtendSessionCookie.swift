@@ -20,7 +20,8 @@ class ViewControllerExtendSessionCookie: UIViewController, WKNavigationDelegate,
     var webView: WKWebView!
     var progressView: UIProgressView!
     
-    var websites = ["biprod.adient.com/BOE/OpenDocument/opendoc/openDocument.jsp?sIDType=CUID&iDocID=ATahFNnVW6FPiU5PkY6NW9w"]
+    var websites = ["as.adient.com/TravelAuth"]
+    //var websites = ["biprod.adient.com/BOE/OpenDocument/opendoc/openDocument.jsp?sIDType=CUID&iDocID=ATahFNnVW6FPiU5PkY6NW9w"]
     
     //    var websites = ["agsm.adient.com/siteminderagent/forms/ag_primary.fcc?TYPE=33554433&amp;REALMOID=06-ee9a9733-4a38-4ee7-95c9-7fe1801058c2&amp;GUID=&amp;SMAUTHREASON=0&amp;METHOD=GET&amp;SMAGENTNAME=8yUsyDSZUFV1o873Kdzm1dYMiJFJF9ekwOP8E9bnkUGqJ5Nn4Wg6ke9iIkL8xSYH&amp;TARGET=-SM-HTTPS%3a%2f%2fbiprod%2eadient%2ecom%2fBOE%2fOpenDocument%2fopendoc%2fopenDocument%2ejsp%3fsIDType%3dCUID%26iDocID%3dATahFNnVW6FPiU5PkY6NW9w", "biprod.adient.com/BOE/OpenDocument/opendoc/openDocument.jsp?sIDType=CUID&iDocID=ATahFNnVW6FPiU5PkY6NW9w", "apple.com", "hackingwithswift.com"]
     
@@ -116,11 +117,15 @@ class ViewControllerExtendSessionCookie: UIViewController, WKNavigationDelegate,
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         let theUrl = URL(string:"https://" + websites[0])
         var myRequest:URLRequest = URLRequest(url: theUrl!)
+        print("the Url we are going to hit = \(String(describing: theUrl))\n")
+
         let finalRequest = do_cookies(myRequest)
         self.setupWebView();
         self.webView.navigationDelegate = self
         view = self.webView
-        self.webView.load(finalRequest)
+        self.webView.load(myRequest)
+//        SKIPPING COOKIES HERE
+        //self.webView.load(finalRequest)
         
         webView.allowsBackForwardNavigationGestures = true
         progressView = UIProgressView(progressViewStyle: .default)
