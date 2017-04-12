@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		471A383B1E9EA1F400EEEF91 /* WkWebViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 471A383A1E9EA1F400EEEF91 /* WkWebViewController.storyboard */; };
+		471A383D1E9EA22500EEEF91 /* ClickMeEventRegister.js in Resources */ = {isa = PBXBuildFile; fileRef = 471A383C1E9EA22500EEEF91 /* ClickMeEventRegister.js */; };
+		471A383F1E9EA22F00EEEF91 /* fetch.js in Resources */ = {isa = PBXBuildFile; fileRef = 471A383E1E9EA22F00EEEF91 /* fetch.js */; };
+		471A38411E9EA23B00EEEF91 /* fwd.png in Resources */ = {isa = PBXBuildFile; fileRef = 471A38401E9EA23B00EEEF91 /* fwd.png */; };
+		471A38431E9EA24300EEEF91 /* hide copy.js in Resources */ = {isa = PBXBuildFile; fileRef = 471A38421E9EA24300EEEF91 /* hide copy.js */; };
+		471A38451E9EA24B00EEEF91 /* hide.js in Resources */ = {isa = PBXBuildFile; fileRef = 471A38441E9EA24B00EEEF91 /* hide.js */; };
+		471A38471E9EA25700EEEF91 /* prev.png in Resources */ = {isa = PBXBuildFile; fileRef = 471A38461E9EA25700EEEF91 /* prev.png */; };
 		472E64351E4D093F00641681 /* DigitsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 472E64321E4D093F00641681 /* DigitsKit.framework */; };
 		472E64361E4D093F00641681 /* DigitsKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 472E64331E4D093F00641681 /* DigitsKitResources.bundle */; };
 		472E64371E4D093F00641681 /* TwitterCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 472E64341E4D093F00641681 /* TwitterCore.framework */; };
@@ -45,6 +52,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		471A383A1E9EA1F400EEEF91 /* WkWebViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WkWebViewController.storyboard; sourceTree = "<group>"; };
+		471A383C1E9EA22500EEEF91 /* ClickMeEventRegister.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = ClickMeEventRegister.js; sourceTree = "<group>"; };
+		471A383E1E9EA22F00EEEF91 /* fetch.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = fetch.js; sourceTree = "<group>"; };
+		471A38401E9EA23B00EEEF91 /* fwd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fwd.png; sourceTree = "<group>"; };
+		471A38421E9EA24300EEEF91 /* hide copy.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "hide copy.js"; sourceTree = "<group>"; };
+		471A38441E9EA24B00EEEF91 /* hide.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = hide.js; sourceTree = "<group>"; };
+		471A38461E9EA25700EEEF91 /* prev.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = prev.png; sourceTree = "<group>"; };
 		472E64321E4D093F00641681 /* DigitsKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DigitsKit.framework; sourceTree = "<group>"; };
 		472E64331E4D093F00641681 /* DigitsKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = DigitsKitResources.bundle; path = DigitsKit.framework/Versions/A/Resources/DigitsKitResources.bundle; sourceTree = "<group>"; };
 		472E64341E4D093F00641681 /* TwitterCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterCore.framework; sourceTree = "<group>"; };
@@ -161,6 +175,13 @@
 				4752F1C51E5F65D500744D0C /* Siren */,
 				47C689BF1E55F8750091728F /* AppDelegate.swift */,
 				47C689C41E55F8750091728F /* ViewController.swift */,
+				471A38401E9EA23B00EEEF91 /* fwd.png */,
+				471A383C1E9EA22500EEEF91 /* ClickMeEventRegister.js */,
+				471A383E1E9EA22F00EEEF91 /* fetch.js */,
+				471A383A1E9EA1F400EEEF91 /* WkWebViewController.storyboard */,
+				471A38441E9EA24B00EEEF91 /* hide.js */,
+				471A38421E9EA24300EEEF91 /* hide copy.js */,
+				471A38461E9EA25700EEEF91 /* prev.png */,
 				47A374851E65CA3A00CBC254 /* ViewControllerExtendSessionCookie.swift */,
 				47C689C01E55F8750091728F /* CoreDataManager.swift */,
 				47C689C11E55F8750091728F /* Info.plist */,
@@ -288,12 +309,18 @@
 				477D76B51E4CF1CC002B235C /* chair-3-just-seat@2x.png in Resources */,
 				477D76AC1E4CF1BB002B235C /* AisForAdientReversed@2x.png in Resources */,
 				47C689CF1E55FC7C0091728F /* LaunchScreen.storyboard in Resources */,
+				471A383F1E9EA22F00EEEF91 /* fetch.js in Resources */,
+				471A383D1E9EA22500EEEF91 /* ClickMeEventRegister.js in Resources */,
 				477D76B41E4CF1CC002B235C /* chair-3-just-seat.png in Resources */,
 				477D76AB1E4CF1BB002B235C /* AisForAdientReversed.png in Resources */,
 				477D76BE1E4CF1EA002B235C /* seat-back.png in Resources */,
 				477D76B71E4CF1CC002B235C /* chair-3@2x.png in Resources */,
+				471A38471E9EA25700EEEF91 /* prev.png in Resources */,
 				477D76BF1E4CF1EA002B235C /* seat-back@2x.png in Resources */,
+				471A38451E9EA24B00EEEF91 /* hide.js in Resources */,
 				477D76B61E4CF1CC002B235C /* chair-3.png in Resources */,
+				471A38431E9EA24300EEEF91 /* hide copy.js in Resources */,
+				471A383B1E9EA1F400EEEF91 /* WkWebViewController.storyboard in Resources */,
 				47C689D01E55FC7C0091728F /* Main.storyboard in Resources */,
 				477D76B91E4CF1CC002B235C /* crane_arm@2x.png in Resources */,
 				477D76B81E4CF1CC002B235C /* crane_arm.png in Resources */,
@@ -301,6 +328,7 @@
 				477D76A91E4CF1BB002B235C /* AdientSlantReversed.png in Resources */,
 				4752F1CE1E5F7C5200744D0C /* Assets.xcassets in Resources */,
 				472E64361E4D093F00641681 /* DigitsKitResources.bundle in Resources */,
+				471A38411E9EA23B00EEEF91 /* fwd.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11761" systemVersion="16D12b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="ipad9_7" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WKWebViewController">
+            <connections>
+                <outlet property="busyWebIcon" destination="4" id="18"/>
+                <outlet property="toolBar" destination="5" id="QW7-4C-SXC"/>
+                <outlet property="view" destination="3" id="dc1-ak-nUU"/>
+                <outlet property="webBack" destination="12" id="yzf-9f-GUe"/>
+                <outlet property="webForward" destination="13" id="ATS-AU-gfB"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="bottomLeft" id="3" userLabel="View">
+            <rect key="frame" x="0.0" y="0.0" width="356" height="460"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="5">
+                    <rect key="frame" x="0.0" y="416" width="356" height="44"/>
+                    <items>
+                        <barButtonItem image="prev.png" style="plain" id="12">
+                            <connections>
+                                <action selector="browseBack:" destination="-1" id="8mP-Fx-JUk"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem enabled="NO" image="fwd.png" style="plain" id="13">
+                            <connections>
+                                <action selector="browseForward:" destination="-1" id="sHx-ii-U15"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="refresh" id="10">
+                            <connections>
+                                <action selector="stopOrReLoadWeb:" destination="-1" id="nBH-pZ-74i"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem enabled="NO" style="plain" systemItem="flexibleSpace" id="9"/>
+                        <barButtonItem style="plain" systemItem="action" id="8">
+                            <connections>
+                                <action selector="share2Twitter:" destination="-1" id="m4u-rM-DHm"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem enabled="NO" style="plain" systemItem="flexibleSpace" id="7"/>
+                        <barButtonItem style="done" systemItem="done" id="11">
+                            <connections>
+                                <action selector="done:" destination="-1" id="SXJ-x9-33z"/>
+                            </connections>
+                        </barButtonItem>
+                    </items>
+                </toolbar>
+                <activityIndicatorView hidden="YES" opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="4">
+                    <rect key="frame" x="160" y="212" width="37" height="37"/>
+                </activityIndicatorView>
+            </subviews>
+            <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="5" secondAttribute="trailing" id="4XO-fF-7zI"/>
+                <constraint firstAttribute="bottom" secondItem="5" secondAttribute="bottom" id="aPk-Vo-hYA"/>
+                <constraint firstItem="4" firstAttribute="centerY" secondItem="3" secondAttribute="centerY" id="lFr-vR-spC"/>
+                <constraint firstItem="4" firstAttribute="centerX" secondItem="5" secondAttribute="centerX" id="q5z-1n-lTP"/>
+                <constraint firstItem="5" firstAttribute="leading" secondItem="3" secondAttribute="leading" id="xJU-ud-p8x"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="331" y="182"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="fwd.png" width="30" height="30"/>
+        <image name="prev.png" width="30" height="30"/>
+    </resources>
+</document>

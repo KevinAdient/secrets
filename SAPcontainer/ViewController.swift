@@ -9,7 +9,7 @@
 import UIKit
 import WebKit
 
-class ViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
+class ViewController: UIViewController, WKNavigationDelegate, WKUIDelegate, WKScriptMessageHandler {
 	var webView: WKWebView!
 	var progressView: UIProgressView!
 
@@ -25,12 +25,57 @@ class ViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
             let cookieScript = WKUserScript(source: script, injectionTime: WKUserScriptInjectionTime.atDocumentStart, forMainFrameOnly: false)
             userContentController.addUserScript(cookieScript)
         }
+        /*
         let webViewConfig = WKWebViewConfiguration()
         webViewConfig.userContentController = userContentController
         
         self.webView = WKWebView(frame: UIScreen.main.bounds/*webViewContainer.bounds*/, configuration: webViewConfig)
+        */
+        let webViewConfig = self.webConfig
+        self.webView = WKWebView(frame: CGRect.zero, configuration: webViewConfig)
+        self.webView.navigationDelegate = self
     }
 
+    var webConfig:WKWebViewConfiguration {
+        get {
+            
+            // Create WKWebViewConfiguration instance
+            let webCfg:WKWebViewConfiguration = WKWebViewConfiguration()
+            
+            // Setup WKUserContentController instance for injecting user script
+            let userController:WKUserContentController = WKUserContentController()
+            
+            //add script hide
+            let scriptURLHide = Bundle.main.path(forResource: "hide", ofType: "js")
+            //let content = String.stringWithContentsOfFile(scriptURL!, encoding: NSUTF8StringEncoding, error: nil)
+            let scriptContentHide:String?
+            do {
+                scriptContentHide = try String(contentsOfFile:scriptURLHide!, encoding:String.Encoding.utf8);
+            }catch _{
+                scriptContentHide = nil;
+            }
+            let scriptHide = WKUserScript(source: scriptContentHide!, injectionTime: .atDocumentEnd, forMainFrameOnly: true)
+            userController.addUserScript(scriptHide)
+            // Add a script message handler for receiving  "buttonClicked" event notifications posted from the JS document using window.webkit.messageHandlers.buttonClicked.postMessage script message
+            
+            
+            //skipping this:  userController.add(self, name: "buttonClicked")
+            
+            // Get script that's to be injected into the document
+            //skipping this:  let js:String = buttonClickEventTriggeredScriptToAddToDocument()
+            
+            // Specify when and where and what user script needs to be injected into the web document
+            //skipping this:  let userScript:WKUserScript =  WKUserScript(source: js, injectionTime: WKUserScriptInjectionTime.atDocumentEnd, forMainFrameOnly: false)
+            
+            // Add the user script to the WKUserContentController instance
+            //skipping this:  userController.addUserScript(userScript)
+            
+            // Configure the WKWebViewConfiguration instance with the WKUserContentController
+            webCfg.userContentController = userController;
+            
+            return webCfg;
+        }
+    }
     ///Generates script to create given cookies
     public func getJSCookiesString(cookies: [HTTPCookie]) -> String {
         var result = ""
@@ -228,5 +273,16 @@ class ViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
 		super.didReceiveMemoryWarning()
 		// Dispose of any resources that can be recreated.
 	}
+    // WKScriptMessageHandler Delegate
+    func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
+
+        /*
+        if let messageBody:NSDictionary = message.body as? NSDictionary {
+            let idOfTappedButton:String = messageBody["ButtonId"] as! String
+            //ptrParent.buyGrouponHit(graffitiMessage.graffiti_Id!, discountedPrice: 15.0, fullPrice: 25.0)
+            buyGrouponHit(discountedPrice: 15.0, fullPrice: 25.0)
+        }
+ */
+    }
 }
 
