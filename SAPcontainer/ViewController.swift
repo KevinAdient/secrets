@@ -9,9 +9,12 @@
 import UIKit
 import WebKit
 
-class ViewController: UIViewController, WKNavigationDelegate, WKUIDelegate, WKScriptMessageHandler {
+
+class ViewController: BaseViewController, WKNavigationDelegate, WKUIDelegate, WKScriptMessageHandler {
 	var webView: WKWebView!
 	var progressView: UIProgressView!
+    
+    var website = "biprod.adient.com/BOE/OpenDocument/opendoc/openDocument.jsp?sIDType=CUID&iDocID=ATahFNnVW6FPiU5PkY6NW9w"
 
     var websites = ["biprod.adient.com/BOE/OpenDocument/opendoc/openDocument.jsp?sIDType=CUID&iDocID=ATahFNnVW6FPiU5PkY6NW9w"]
 
@@ -146,8 +149,9 @@ class ViewController: UIViewController, WKNavigationDelegate, WKUIDelegate, WKSc
 
     override func viewDidLoad() {
 		super.viewDidLoad()
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
-        let theUrl = URL(string:"https://" + websites[0])
+        self.addSlideMenuButton()
+    //self.navigationController?.setNavigationBarHidden(true, animated: true)
+        let theUrl = URL(string:"https://" + website)
         var myRequest:URLRequest = URLRequest(url: theUrl!)
         let finalRequest = do_cookies(myRequest)
         self.setupWebView();

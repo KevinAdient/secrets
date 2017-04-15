@@ -181,7 +181,7 @@ class LoginViewController: UIViewController
             if (theCredentials.myUserDetails?.hasChanges)! {
                 self.appDelegate.myCoreDataManager.saveContext()
             }
-            self.performSegue(withIdentifier: "viewSegue", sender: self)
+            self.performSegue(withIdentifier: "menuSegue", sender: self)
         }
 //        let appDelegate = UIApplication.shared.delegate as! AppDelegate
     }
@@ -222,7 +222,7 @@ class LoginViewController: UIViewController
                 if (theCredentials.myUserDetails?.hasChanges)! {
                     self.appDelegate.myCoreDataManager.saveContext()
                 }
-                self.performSegue(withIdentifier: "viewSegue", sender: self)
+                self.performSegue(withIdentifier: "menuSegue", sender: self)
                 return
             }
             else{

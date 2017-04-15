@@ -14,6 +14,11 @@
 		471A38431E9EA24300EEEF91 /* hide copy.js in Resources */ = {isa = PBXBuildFile; fileRef = 471A38421E9EA24300EEEF91 /* hide copy.js */; };
 		471A38451E9EA24B00EEEF91 /* hide.js in Resources */ = {isa = PBXBuildFile; fileRef = 471A38441E9EA24B00EEEF91 /* hide.js */; };
 		471A38471E9EA25700EEEF91 /* prev.png in Resources */ = {isa = PBXBuildFile; fileRef = 471A38461E9EA25700EEEF91 /* prev.png */; };
+		471A384B1EA0271D00EEEF91 /* DynamicMenuSelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471A384A1EA0271D00EEEF91 /* DynamicMenuSelectionTableViewController.swift */; };
+		471A38521EA29B1C00EEEF91 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471A38501EA29B1C00EEEF91 /* BaseViewController.swift */; };
+		471A38531EA29B1C00EEEF91 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471A38511EA29B1C00EEEF91 /* MenuViewController.swift */; };
+		471A38551EA2C9ED00EEEF91 /* PlayVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471A38541EA2C9ED00EEEF91 /* PlayVC.swift */; };
+		471A38571EA2C9FF00EEEF91 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471A38561EA2C9FF00EEEF91 /* HomeVC.swift */; };
 		472E64351E4D093F00641681 /* DigitsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 472E64321E4D093F00641681 /* DigitsKit.framework */; };
 		472E64361E4D093F00641681 /* DigitsKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 472E64331E4D093F00641681 /* DigitsKitResources.bundle */; };
 		472E64371E4D093F00641681 /* TwitterCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 472E64341E4D093F00641681 /* TwitterCore.framework */; };
@@ -59,6 +64,11 @@
 		471A38421E9EA24300EEEF91 /* hide copy.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "hide copy.js"; sourceTree = "<group>"; };
 		471A38441E9EA24B00EEEF91 /* hide.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = hide.js; sourceTree = "<group>"; };
 		471A38461E9EA25700EEEF91 /* prev.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = prev.png; sourceTree = "<group>"; };
+		471A384A1EA0271D00EEEF91 /* DynamicMenuSelectionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicMenuSelectionTableViewController.swift; sourceTree = "<group>"; };
+		471A38501EA29B1C00EEEF91 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseViewController.swift; path = SAPcontainer/BaseViewController.swift; sourceTree = "<group>"; };
+		471A38511EA29B1C00EEEF91 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuViewController.swift; path = SAPcontainer/MenuViewController.swift; sourceTree = "<group>"; };
+		471A38541EA2C9ED00EEEF91 /* PlayVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayVC.swift; sourceTree = "<group>"; };
+		471A38561EA2C9FF00EEEF91 /* HomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		472E64321E4D093F00641681 /* DigitsKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DigitsKit.framework; sourceTree = "<group>"; };
 		472E64331E4D093F00641681 /* DigitsKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = DigitsKitResources.bundle; path = DigitsKit.framework/Versions/A/Resources/DigitsKitResources.bundle; sourceTree = "<group>"; };
 		472E64341E4D093F00641681 /* TwitterCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterCore.framework; sourceTree = "<group>"; };
@@ -172,9 +182,15 @@
 		47C689BE1E55F8450091728F /* SAPcontainer */ = {
 			isa = PBXGroup;
 			children = (
+				47C689CA1E55FC7C0091728F /* Base.lproj */,
+				471A384A1EA0271D00EEEF91 /* DynamicMenuSelectionTableViewController.swift */,
 				4752F1C51E5F65D500744D0C /* Siren */,
 				47C689BF1E55F8750091728F /* AppDelegate.swift */,
 				47C689C41E55F8750091728F /* ViewController.swift */,
+				471A38501EA29B1C00EEEF91 /* BaseViewController.swift */,
+				471A38511EA29B1C00EEEF91 /* MenuViewController.swift */,
+				471A38541EA2C9ED00EEEF91 /* PlayVC.swift */,
+				471A38561EA2C9FF00EEEF91 /* HomeVC.swift */,
 				471A38401E9EA23B00EEEF91 /* fwd.png */,
 				471A383C1E9EA22500EEEF91 /* ClickMeEventRegister.js */,
 				471A383E1E9EA22F00EEEF91 /* fetch.js */,
@@ -205,7 +221,6 @@
 			children = (
 				47C689BE1E55F8450091728F /* SAPcontainer */,
 				475ED2F41E525A1800D5BE71 /* AdientSapStore.xcdatamodeld */,
-				47C689CA1E55FC7C0091728F /* Base.lproj */,
 				472E64321E4D093F00641681 /* DigitsKit.framework */,
 				472E64331E4D093F00641681 /* DigitsKitResources.bundle */,
 				472E64341E4D093F00641681 /* TwitterCore.framework */,
@@ -374,12 +389,17 @@
 				47A374861E65CA3A00CBC254 /* ViewControllerExtendSessionCookie.swift in Sources */,
 				477D76C31E4CFAFE002B235C /* LoginViewController.swift in Sources */,
 				477D76A81E4CF1BB002B235C /* AdientSeatBrandedCustomView.swift in Sources */,
+				471A38551EA2C9ED00EEEF91 /* PlayVC.swift in Sources */,
 				477D76BD1E4CF1EA002B235C /* QCMethod.swift in Sources */,
+				471A38571EA2C9FF00EEEF91 /* HomeVC.swift in Sources */,
+				471A38521EA29B1C00EEEF91 /* BaseViewController.swift in Sources */,
 				475ED2F61E525A1800D5BE71 /* AdientSapStore.xcdatamodeld in Sources */,
+				471A38531EA29B1C00EEEF91 /* MenuViewController.swift in Sources */,
 				47C689C51E55F8750091728F /* AppDelegate.swift in Sources */,
 				477D76A71E4CF1BB002B235C /* AdientBrandedViewController.swift in Sources */,
 				4752F1CC1E5F65D500744D0C /* Siren.swift in Sources */,
 				47C689C61E55F8750091728F /* CoreDataManager.swift in Sources */,
+				471A384B1EA0271D00EEEF91 /* DynamicMenuSelectionTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
