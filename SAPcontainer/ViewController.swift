@@ -35,6 +35,11 @@ class ViewController: BaseViewController, WKNavigationDelegate, WKUIDelegate, WK
         self.webView = WKWebView(frame: UIScreen.main.bounds/*webViewContainer.bounds*/, configuration: webViewConfig)
         */
         let webViewConfig = self.webConfig
+        if self.webView != nil {
+            self.webView.removeObserver(self, forKeyPath: #keyPath(WKWebView.estimatedProgress))
+            
+        }
+
         self.webView = WKWebView(frame: CGRect.zero, configuration: webViewConfig)
         self.webView.navigationDelegate = self
     }
@@ -98,8 +103,53 @@ class ViewController: BaseViewController, WKNavigationDelegate, WKUIDelegate, WK
         }
         return result
     }
-    
+
+    // adds the cookies that are already stored before the request happens
     func do_cookies(_ originalRequest:URLRequest)->URLRequest {
+        var request:URLRequest = originalRequest
+        request.httpShouldHandleCookies = true
+        let validDomain:NSString = request.url!.host! as NSString
+        let requestIsSecure:Bool = (request.url!.scheme == "https" as String?)
+        
+        var array:NSMutableArray = NSMutableArray()
+        if let cookies = HTTPCookieStorage.shared.cookies {
+            for cookie in cookies {
+                // Don't even bother with values containing a `'`
+                print(cookie)
+                if cookie.name.range(of: "'") != nil {
+                    
+                    NSLog("Skipping \(String(describing: cookie.properties)) because it contains a '")
+                    continue;
+                }
+                /*
+                 // Is the cookie for current domain?
+                 if (!cookie.domain.hasSuffix(validDomain as String)) {
+                 NSLog("Skipping \(String(describing: cookie.properties)) (because not \(validDomain))\n")
+                 continue;
+                 }
+                 */
+                // Are we secure only?
+                if (cookie.isSecure && !requestIsSecure) {
+                    NSLog("Skipping \(String(describing: cookie.properties)) (because \(String(describing: request.url?.absoluteString)) not secure)\n")
+                    continue;
+                }
+                if(cookie.name == "JSESSIONID" || cookie.name == "BOE_SERIALIZED_SESSION" || cookie.name == "SMSESSION"){
+                    print("got a stored session! = \(cookie.name)\n")
+                    //cookie.expiresDate = nil
+                }
+                
+                let value:String = String(format:"%@=%@", cookie.name, cookie.value)
+                print(String(format:"cookie name = [%@], value = [%@]\n\n", cookie.name, cookie.value))
+                array.add(value)
+            }
+        }
+        
+        let header = array.componentsJoined(by:";")
+        request.setValue(header, forHTTPHeaderField:"Cookie")
+        return request;
+    }
+    
+    func do_cookiesOrig(_ originalRequest:URLRequest)->URLRequest {
         var request:URLRequest = originalRequest
         request.httpShouldHandleCookies = true
         let validDomain:NSString = request.url!.host! as NSString
@@ -146,31 +196,49 @@ class ViewController: BaseViewController, WKNavigationDelegate, WKUIDelegate, WK
         request.setValue(header, forHTTPHeaderField:"Cookie")
         return request;
     }
-
-    override func viewDidLoad() {
-		super.viewDidLoad()
-        self.addSlideMenuButton()
-    //self.navigationController?.setNavigationBarHidden(true, animated: true)
+    func reloadWebView(){
+        let theUrl = URL(string:"https://" + website)
+        let myRequest:URLRequest = URLRequest(url: theUrl!)
+//        let finalRequest = do_cookies(myRequest)
+//        self.setupWebView();
+//        self.webView.navigationDelegate = self
+//        view = self.webView
+//        self.webView.load(finalRequest)
+        self.webView.load(myRequest)
+       
+    }
+    //website gets swapped out when menu button is hit
+    private func loadWebPage(){
         let theUrl = URL(string:"https://" + website)
         var myRequest:URLRequest = URLRequest(url: theUrl!)
         let finalRequest = do_cookies(myRequest)
         self.setupWebView();
         self.webView.navigationDelegate = self
         view = self.webView
-		self.webView.load(finalRequest)
-
-		webView.allowsBackForwardNavigationGestures = true
-		progressView = UIProgressView(progressViewStyle: .default)
-		progressView.sizeToFit()
-		let progressButton = UIBarButtonItem(customView: progressView)
-
-		let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-		let refresh = UIBarButtonItem(barButtonSystemItem: .refresh, target: webView, action: #selector(webView.reload))
-
-		toolbarItems = [progressButton, spacer, refresh]
-		navigationController?.isToolbarHidden = false
-
-		webView.addObserver(self, forKeyPath: #keyPath(WKWebView.estimatedProgress), options: .new, context: nil)
+        self.webView.load(finalRequest)
+        
+        webView.allowsBackForwardNavigationGestures = true
+        progressView = UIProgressView(progressViewStyle: .default)
+        progressView.sizeToFit()
+        let progressButton = UIBarButtonItem(customView: progressView)
+        
+        let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let refresh = UIBarButtonItem(barButtonSystemItem: .refresh, target: webView, action: #selector(webView.reload))
+        
+        toolbarItems = [progressButton, spacer, refresh]
+        navigationController?.isToolbarHidden = false
+        
+        webView.addObserver(self, forKeyPath: #keyPath(WKWebView.estimatedProgress), options: .new, context: nil)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+    }
+    
+    override func viewDidLoad() {
+		super.viewDidLoad()
+         self.addSlideMenuButton()
+        //self.navigationController?.setNavigationBarHidden(true, animated: true)
+        self.loadWebPage()
 	}
 
 	func openTapped() {
@@ -197,21 +265,39 @@ class ViewController: BaseViewController, WKNavigationDelegate, WKUIDelegate, WK
                 print(cookie)
             }
         }
+        webView.removeObserver(self, forKeyPath: #keyPath(WKWebView.estimatedProgress))
+
     }
 
 	func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
 		title = webView.title
+        /*
         if let cookies = HTTPCookieStorage.shared.cookies {
             for cookie in cookies {
                 // Don't even bother with values containing a `'`
                 var cookieProperties = [HTTPCookiePropertyKey:Any]()
                 //cookieProperties.
                 cookieProperties[HTTPCookiePropertyKey.name] = cookie.name
+                print("cookie.name = [\(cookie.name)]\n")
                 cookieProperties[HTTPCookiePropertyKey.value] = cookie.value
                 cookieProperties[HTTPCookiePropertyKey.domain] = cookie.domain
                 cookieProperties[HTTPCookiePropertyKey.path] = cookie.path
+                //print("cookie path was = [\(cookie.path)]\n")
+                //cookieProperties[HTTPCookiePropertyKey.path] = "/"
+                //print("cookie path now = [\(HTTPCookiePropertyKey.path)]\n")
+                ///BOE/OpenDocument/opendoc/openDocument.jsp?sIDType=CUID&iDocID=
                 cookieProperties[HTTPCookiePropertyKey.version] = NSNumber(value: cookie.version)
-                cookieProperties[HTTPCookiePropertyKey.expires] = NSDate().addingTimeInterval(31536000)
+                print("cookie.name = \(cookie.name)\n")
+                if cookie.name == "SMSESSION" {
+                    cookieProperties[HTTPCookiePropertyKey.expires] = //NSDate().addingTimeInterval(31536000)
+                        NSDate().addingTimeInterval(86400)//24 hours
+                                        
+                    let newCookie = HTTPCookie(properties: cookieProperties as! [HTTPCookiePropertyKey : Any])
+                    HTTPCookieStorage.shared.deleteCookie(cookie)
+                    HTTPCookieStorage.shared.setCookie(newCookie!)
+                    
+                    print("name: \(cookie.name) value: \(cookie.value) expires: \(cookieProperties[HTTPCookiePropertyKey.expires])\n")
+                }
                 //cookieProperties[HTTPCookiePropertyKey.]
                 
                 let newCookie = HTTPCookie(properties: cookieProperties as! [HTTPCookiePropertyKey : Any])
@@ -219,15 +305,57 @@ class ViewController: BaseViewController, WKNavigationDelegate, WKUIDelegate, WK
                 
                 if(cookie.value == "LOGGEDOFF"){
                     HTTPCookieStorage.shared.deleteCookie(cookie)
-                    /*
+                    //
                     
                     print("name: \(cookie.name) value: \(cookie.value) expires: \(cookieProperties[HTTPCookiePropertyKey.expires])\n")
-                    */
+                    //
                 }
             }
-        }
+        }*/
 	}
+    
     func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
+        var bSmSessionFound:Bool = false
+        
+        if let urlResponse = navigationResponse.response as? HTTPURLResponse,
+            let url = urlResponse.url,
+            let allHeaderFields = urlResponse.allHeaderFields as? [String : String] {
+            //var newCookies:[HTTPCookie] = [HTTPCookie()]
+            let cookies = HTTPCookie.cookies(withResponseHeaderFields: allHeaderFields, for: url)
+            print("cookies from webView:decidePolicyFor \(cookies)\n")
+            //extending the expires date, no longer session...
+            for cookie in cookies {
+                var cookieProperties = [HTTPCookiePropertyKey:Any]()
+                //cookieProperties.
+                cookieProperties[HTTPCookiePropertyKey.name] = cookie.name
+                cookieProperties[HTTPCookiePropertyKey.value] = cookie.value
+                cookieProperties[HTTPCookiePropertyKey.domain] = cookie.domain
+                cookieProperties[HTTPCookiePropertyKey.path] = cookie.path
+                cookieProperties[HTTPCookiePropertyKey.version] = NSNumber(value: cookie.version)
+                print("cookie.name = \(cookie.name)\n")
+                if cookie.name == "SMSESSION" {
+                    bSmSessionFound = true
+                cookieProperties[HTTPCookiePropertyKey.expires] = //NSDate().addingTimeInterval(31536000)
+                    NSDate().addingTimeInterval(86400)
+                
+                    //cookieProperties[HTTPCookiePropertyKey.]
+                    
+                    let newCookie = HTTPCookie(properties: cookieProperties as! [HTTPCookiePropertyKey : Any])
+                    HTTPCookieStorage.shared.deleteCookie(cookie)
+                    HTTPCookieStorage.shared.setCookie(newCookie!)
+    //HERE
+                    print("name: \(newCookie?.name) value: \(newCookie?.value) expires: \(cookieProperties[HTTPCookiePropertyKey.expires]!)\n")
+                }
+            }
+            
+            if bSmSessionFound {
+                HTTPCookieStorage.shared.setCookies(cookies , for: urlResponse.url!, mainDocumentURL: nil)
+            }
+            decisionHandler(.allow)
+        }
+    }
+
+    func webViewOrig(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
         //var increment:Int = 0
         
         if let urlResponse = navigationResponse.response as? HTTPURLResponse,
@@ -287,6 +415,15 @@ class ViewController: BaseViewController, WKNavigationDelegate, WKUIDelegate, WK
             buyGrouponHit(discountedPrice: 15.0, fullPrice: 25.0)
         }
  */
+    }
+    deinit {
+        //webView!.removeObserver(self, forKeyPath: "estimatedProgress")
+        webView.removeObserver(self, forKeyPath: #keyPath(WKWebView.estimatedProgress))
+
+    }
+    func webViewWebContentProcessDidTerminate(_ webView: WKWebView){
+        webView.removeObserver(self, forKeyPath: #keyPath(WKWebView.estimatedProgress))
+   
     }
 }
 

@@ -41,20 +41,33 @@ class BaseViewController: UIViewController, SlideMenuDelegate {
         }
     }
     
-    func openViewControllerBasedOnIdentifier(_ strIdentifier:String){
+    func openViewControllerBasedOnIdentifierOriginal(_ strIdentifier:String){
         let myViewController = "viewController"
         let destViewController : ViewController = self.storyboard!.instantiateViewController(withIdentifier: myViewController) as! ViewController
 //        let destViewController : UIViewController = self.storyboard!.instantiateViewController(withIdentifier: strIdentifier)
         let theUrl = arrayMenuOptions[selectedRow]["url"]!
         
-        destViewController.website = theUrl
-        let topViewController : UIViewController = self.navigationController!.topViewController!
         
+        let topViewController : UIViewController = self.navigationController!.topViewController!
+        //destViewController.reloadWebView()
         if (topViewController.restorationIdentifier! == destViewController.restorationIdentifier!){
-            print("Same VC")
+            let destinationViewController = topViewController as! ViewController
+            destinationViewController.website = theUrl
+            destViewController.view.setNeedsDisplay()
+            print("view Will Appear call is next")
         } else {
+            destViewController.website = theUrl
+            
             self.navigationController!.pushViewController(destViewController, animated: true)
         }
+    }
+    
+    func openViewControllerBasedOnIdentifier(_ strIdentifier:String){
+        let myViewController = "viewController"
+        let destViewController : ViewController = self.storyboard!.instantiateViewController(withIdentifier: myViewController) as! ViewController
+        let theUrl = arrayMenuOptions[selectedRow]["url"]!
+        destViewController.website = theUrl        
+        self.navigationController?.replaceTopViewController(with: destViewController, animated: true)
     }
     
     func addSlideMenuButton(){
@@ -128,5 +141,13 @@ class BaseViewController: UIViewController, SlideMenuDelegate {
             menuVC.view.frame=CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height);
             sender.isEnabled = true
             }, completion:nil)
+    }
+}
+
+extension UINavigationController {
+    func replaceTopViewController(with viewController: UIViewController, animated: Bool) {
+        var vcs = viewControllers
+        vcs[vcs.count - 1] = viewController
+        setViewControllers(vcs, animated: animated)
     }
 }

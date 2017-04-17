@@ -63,8 +63,8 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func updateArrayMenuOptions(){
         if arrayMenuOptions.count == 0 {
-            arrayMenuOptions.append(["title":"firstLink", "icon":"HomeIcon", "url":"https://google.com"])
-            arrayMenuOptions.append(["title":"secondLink", "icon":"PlayIcon", "url":"https://ag.adient.com/mobile/"])
+            arrayMenuOptions.append(["title":"Supplier Quality Dashboard", "icon":"HomeIcon", "url":"biprod.adient.com/BOE/OpenDocument/opendoc/openDocument.jsp?sIDType=CUID&iDocID=AcQWMlBUGSVPs5ELyCwz9Nw"])
+            arrayMenuOptions.append(["title":"Operations Dashboard", "icon":"PlayIcon", "url":"biprod.adient.com/BOE/OpenDocument/opendoc/openDocument.jsp?sIDType=CUID&iDocID=AcD8UbmaXElBlgKf7N3UMzI"])
         }
         tblMenuOptions.reloadData()
     }
