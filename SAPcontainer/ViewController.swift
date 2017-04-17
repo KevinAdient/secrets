@@ -312,6 +312,7 @@ class ViewController: BaseViewController, WKNavigationDelegate, WKUIDelegate, WK
                 }
             }
         }*/
+        /* this is just for sanity check */
 	}
     
     func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
