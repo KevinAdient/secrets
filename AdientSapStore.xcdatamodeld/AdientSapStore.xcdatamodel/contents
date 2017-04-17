@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12115" systemVersion="16E163f" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16F43c" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="UserDeviceDetails" representedClassName=".UserDeviceDetails" syncable="YES" codeGenerationType="class">
         <attribute name="access_token" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="access_tokenDateExpires" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
@@ -13,9 +13,9 @@
         <attribute name="globalID" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
         <attribute name="hashedUserID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="iDigitsCounter" optional="YES" attributeType="Integer 16" defaultValueString="-1" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="iDigitsInterval" optional="YES" attributeType="Integer 16" defaultValueString="10" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="iDigitsInterval" optional="YES" attributeType="Integer 16" defaultValueString="200" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="iFingerprintCounter" optional="YES" attributeType="Integer 16" defaultValueString="-1" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="iFingerprintInterval" optional="YES" attributeType="Integer 16" defaultValueString="3" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="iFingerprintInterval" optional="YES" attributeType="Integer 16" defaultValueString="25" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="offLineMode" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="otherFirewallCredential" optional="YES" attributeType="String" syncable="YES"/>
