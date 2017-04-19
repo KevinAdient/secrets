@@ -54,6 +54,7 @@
 		47C689C91E55F8750091728F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C689C41E55F8750091728F /* ViewController.swift */; };
 		47C689CF1E55FC7C0091728F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47C689CB1E55FC7C0091728F /* LaunchScreen.storyboard */; };
 		47C689D01E55FC7C0091728F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47C689CD1E55FC7C0091728F /* Main.storyboard */; };
+		47FB97821EA7FD97006B60D3 /* OperationsDashboardIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 47FB97811EA7FD97006B60D3 /* OperationsDashboardIcon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -107,6 +108,7 @@
 		47C689C41E55F8750091728F /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = SAPcontainer/ViewController.swift; sourceTree = "<group>"; };
 		47C689CC1E55FC7C0091728F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		47C689CE1E55FC7C0091728F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
+		47FB97811EA7FD97006B60D3 /* OperationsDashboardIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OperationsDashboardIcon.png; sourceTree = "<group>"; };
 		514C9FF91D5F90D5005D70E0 /* SAPcontainer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SAPcontainer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -189,6 +191,7 @@
 				47C689C41E55F8750091728F /* ViewController.swift */,
 				471A38501EA29B1C00EEEF91 /* BaseViewController.swift */,
 				471A38511EA29B1C00EEEF91 /* MenuViewController.swift */,
+				47FB97811EA7FD97006B60D3 /* OperationsDashboardIcon.png */,
 				471A38541EA2C9ED00EEEF91 /* PlayVC.swift */,
 				471A38561EA2C9FF00EEEF91 /* HomeVC.swift */,
 				471A38401E9EA23B00EEEF91 /* fwd.png */,
@@ -342,6 +345,7 @@
 				4752F1CB1E5F65D500744D0C /* Siren.bundle in Resources */,
 				477D76A91E4CF1BB002B235C /* AdientSlantReversed.png in Resources */,
 				4752F1CE1E5F7C5200744D0C /* Assets.xcassets in Resources */,
+				47FB97821EA7FD97006B60D3 /* OperationsDashboardIcon.png in Resources */,
 				472E64361E4D093F00641681 /* DigitsKitResources.bundle in Resources */,
 				471A38411E9EA23B00EEEF91 /* fwd.png in Resources */,
 			);
