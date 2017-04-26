@@ -317,10 +317,20 @@ class ViewController: BaseViewController, WKNavigationDelegate, WKUIDelegate, WK
     
     func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
         var bSmSessionFound:Bool = false
+        var bDeleteSmSession:Bool = false
         
         if let urlResponse = navigationResponse.response as? HTTPURLResponse,
             let url = urlResponse.url,
             let allHeaderFields = urlResponse.allHeaderFields as? [String : String] {
+            
+            print("navigationResponse = \(url.absoluteString)\n")
+            if url.absoluteString.hasSuffix("service/app/error.do"){
+                print("Caught:  sending an Alert\n")
+                bDeleteSmSession = true
+                let alert = UIAlertController(title: "Alert", message: "You don't have permission for this app:  please open a case with ITSM", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
             //var newCookies:[HTTPCookie] = [HTTPCookie()]
             let cookies = HTTPCookie.cookies(withResponseHeaderFields: allHeaderFields, for: url)
             print("cookies from webView:decidePolicyFor \(cookies)\n")
@@ -329,6 +339,12 @@ class ViewController: BaseViewController, WKNavigationDelegate, WKUIDelegate, WK
                 var cookieProperties = [HTTPCookiePropertyKey:Any]()
                 //cookieProperties.
                 cookieProperties[HTTPCookiePropertyKey.name] = cookie.name
+                if cookie.name == "SMTRYNO" {
+                    print("Caught you, sending an Alert\n")
+                    let alert = UIAlertController(title: "Alert", message: "Incorrect username/password", preferredStyle: UIAlertControllerStyle.alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                }
                 cookieProperties[HTTPCookiePropertyKey.value] = cookie.value
                 cookieProperties[HTTPCookiePropertyKey.domain] = cookie.domain
                 cookieProperties[HTTPCookiePropertyKey.path] = cookie.path
@@ -336,20 +352,26 @@ class ViewController: BaseViewController, WKNavigationDelegate, WKUIDelegate, WK
                 print("cookie.name = \(cookie.name)\n")
                 if cookie.name == "SMSESSION" {
                     bSmSessionFound = true
-                cookieProperties[HTTPCookiePropertyKey.expires] = //NSDate().addingTimeInterval(31536000)
-                    NSDate().addingTimeInterval(86400)
+                    if bDeleteSmSession {
+                        cookieProperties[HTTPCookiePropertyKey.expires] = NSDate() //set the expires to now
+                    }else {
+                        cookieProperties[HTTPCookiePropertyKey.expires] = NSDate().addingTimeInterval(86400)
+                    }
                 
-                    //cookieProperties[HTTPCookiePropertyKey.]
                     
                     let newCookie = HTTPCookie(properties: cookieProperties as! [HTTPCookiePropertyKey : Any])
                     HTTPCookieStorage.shared.deleteCookie(cookie)
-                    HTTPCookieStorage.shared.setCookie(newCookie!)
+                    if bDeleteSmSession == false {
+                        HTTPCookieStorage.shared.setCookie(newCookie!)
+                    }else {
+                        print("deleting SMSession from cookies\n")
+                    }
     //HERE
                     print("name: \(newCookie?.name) value: \(newCookie?.value) expires: \(cookieProperties[HTTPCookiePropertyKey.expires]!)\n")
                 }
             }
             
-            if bSmSessionFound {
+            if bSmSessionFound && !bDeleteSmSession {
                 HTTPCookieStorage.shared.setCookies(cookies , for: urlResponse.url!, mainDocumentURL: nil)
             }
             decisionHandler(.allow)
