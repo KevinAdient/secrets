@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		471122F81EB0DACB00AF071D /* PromptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471122F71EB0DACB00AF071D /* PromptViewController.swift */; };
 		471A383B1E9EA1F400EEEF91 /* WkWebViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 471A383A1E9EA1F400EEEF91 /* WkWebViewController.storyboard */; };
 		471A383D1E9EA22500EEEF91 /* ClickMeEventRegister.js in Resources */ = {isa = PBXBuildFile; fileRef = 471A383C1E9EA22500EEEF91 /* ClickMeEventRegister.js */; };
 		471A383F1E9EA22F00EEEF91 /* fetch.js in Resources */ = {isa = PBXBuildFile; fileRef = 471A383E1E9EA22F00EEEF91 /* fetch.js */; };
@@ -58,6 +59,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		471122F71EB0DACB00AF071D /* PromptViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PromptViewController.swift; path = SAPcontainer/PromptViewController.swift; sourceTree = "<group>"; };
 		471A383A1E9EA1F400EEEF91 /* WkWebViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WkWebViewController.storyboard; sourceTree = "<group>"; };
 		471A383C1E9EA22500EEEF91 /* ClickMeEventRegister.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = ClickMeEventRegister.js; sourceTree = "<group>"; };
 		471A383E1E9EA22F00EEEF91 /* fetch.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = fetch.js; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 				471A384A1EA0271D00EEEF91 /* DynamicMenuSelectionTableViewController.swift */,
 				4752F1C51E5F65D500744D0C /* Siren */,
 				47C689BF1E55F8750091728F /* AppDelegate.swift */,
+				471122F71EB0DACB00AF071D /* PromptViewController.swift */,
 				47C689C41E55F8750091728F /* ViewController.swift */,
 				471A38501EA29B1C00EEEF91 /* BaseViewController.swift */,
 				471A38511EA29B1C00EEEF91 /* MenuViewController.swift */,
@@ -395,6 +398,7 @@
 				477D76A81E4CF1BB002B235C /* AdientSeatBrandedCustomView.swift in Sources */,
 				471A38551EA2C9ED00EEEF91 /* PlayVC.swift in Sources */,
 				477D76BD1E4CF1EA002B235C /* QCMethod.swift in Sources */,
+				471122F81EB0DACB00AF071D /* PromptViewController.swift in Sources */,
 				471A38571EA2C9FF00EEEF91 /* HomeVC.swift in Sources */,
 				471A38521EA29B1C00EEEF91 /* BaseViewController.swift in Sources */,
 				475ED2F61E525A1800D5BE71 /* AdientSapStore.xcdatamodeld in Sources */,

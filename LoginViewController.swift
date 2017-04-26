@@ -181,7 +181,7 @@ class LoginViewController: UIViewController
             if (theCredentials.myUserDetails?.hasChanges)! {
                 self.appDelegate.myCoreDataManager.saveContext()
             }
-            self.performSegue(withIdentifier: "menuSegue", sender: self)
+            self.performSegue(withIdentifier: "promptSegue", sender: self)
         }
 //        let appDelegate = UIApplication.shared.delegate as! AppDelegate
     }
